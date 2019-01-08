@@ -22,7 +22,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 from ucommander import uCommander
 import argparse
 
-parser = argparse.ArgumentParser(description='Send commands to a microprocessor.')
+parser = argparse.ArgumentParser(prog='ucommander',description='Send commands to a microprocessor.')
 parser.add_argument('-b','--baudrate', default=115200, type=int,
                     help='Serial baud rate (defaults to 115200)')
 parser.add_argument('-p','--serialport', default='?', 

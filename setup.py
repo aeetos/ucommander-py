@@ -25,7 +25,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ucommander",
-    version="1.0.1",
+    version="1.0.2",
     author="Mark A Kendrick",
     author_email="code@ikend.com",
     description="Interface with code running on a microprocessor via serial",

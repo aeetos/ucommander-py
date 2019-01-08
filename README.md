@@ -8,19 +8,38 @@ via serial communication.
 The Python code is designed to work with the 
 [uCommander Arduino library](https://github.com/aeetos/ucommander).
 
-Most of the documentation you need to get started is currently 
-hosted in that project, so that's your best starting point for now.
-
-This module is not yet available in pypi (but we're working on it). 
-Until then, to get started:
-1. Install pyserial (ideally in a venv): `pip install pyserial`
-2. Download or clone this project somewhere local
-3. Navigate to the root of this project (same place this README file is)
-
-After that, you should be able to run the cli as if the module was installed
-via pip:
+Basic CLI Usage
+---------------
+First, install the ucommander Python library with pip, ideally in a
+virtual environment.
 ```
-$ python -m ucommander -h
+$ cd myproject
+$ python -m venv venv
+$ pip install ucommander
+```
+After you have the `ucommander` library installed in your Python environment,
+ensure your microprocessor is attached to your host and determine what
+serial port you will use to communicate with it. 
+
+The `listports` command can help with this.
+```
+$ python -m ucommander listports
+Attempting to enumerate serial ports...
+/dev/cu.SOC - n/a
+/dev/cu.usbmodem - USB Serial
+```
+Once you know the serial port, run the discover command to learn which
+commands you can run and what arguments they require.
+```
+$ python -m ucommander -p /dev/cu.usbmodem discover
+Available commands:
+ ledIfPi        FLOAT(4)
+```
+Finally, run the commands, providing any required arguments after the command
+name.
+```
+$ python -m ucommander -p /dev/cu.usbmodem ledIfPi 3.14
+$ python -m ucommander -p /dev/cu.usbmodem ledIfPi 3.24
 ```
 
 
